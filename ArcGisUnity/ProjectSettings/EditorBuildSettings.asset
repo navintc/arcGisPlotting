@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OutdoorsScene.unity
+    path: Assets/MainMenu.unity
+    guid: 835cb80e5cf69e74caeac7401397a504
+  - enabled: 1
+    path: Assets/San Fransisco.unity
+    guid: 42758f897823f374fb9e26a1c5b2c393
+  - enabled: 1
+    path: Assets/montreal.unity
+    guid: 7431e6dc8dc019e4b9b36e75859b9f0e
+  - enabled: 1
+    path: Assets/New York.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   m_configObjects: {}

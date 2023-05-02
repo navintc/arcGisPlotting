@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f7dda835407f8c4419b7d855d6dde18b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Monument Extended
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b75848445af826d4bb6ed0486793a820, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
