@@ -20,6 +20,7 @@ using Esri.HPFramework;
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -186,8 +187,12 @@ namespace Esri.ArcGISMapsSDK.Samples.Components
 				// Not functional until we have a spatial reference
 				return;
 			}
-
-			DragMouseEvent();
+			Debug.Log("EventSystem.current: " + EventSystem.current.IsPointerOverGameObject());
+			if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            DragMouseEvent();
 
 			UpdateNavigation();
 		}

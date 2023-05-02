@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    public static string selectedScene = "";
+    public static string selectedScene = "Test Mode";
 
     void Awake()
     {
