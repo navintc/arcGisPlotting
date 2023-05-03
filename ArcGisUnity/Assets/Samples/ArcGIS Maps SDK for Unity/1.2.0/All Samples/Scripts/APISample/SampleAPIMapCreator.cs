@@ -47,7 +47,7 @@ public class SampleAPIMapCreator : MonoBehaviour
 	private ArcGISCameraComponent cameraComponent;
 	public string APIKey = "";
 
-	private ArcGISPoint geographicCoordinates = new ArcGISPoint(-74.054921, 40.691242, 3000, ArcGISSpatialReference.WGS84());
+	private ArcGISPoint geographicCoordinates = new ArcGISPoint(-74.054921, 40.691242, 2000, ArcGISSpatialReference.WGS84());
 
 	// This sample event is used in conjunction with a Sample3DAttributes component
 	// It passes a layer to a listener to process its attributes

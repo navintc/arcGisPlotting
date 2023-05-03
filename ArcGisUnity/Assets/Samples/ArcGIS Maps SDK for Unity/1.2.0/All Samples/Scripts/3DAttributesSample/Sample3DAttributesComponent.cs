@@ -15,6 +15,8 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+using UnityEngine.UI;
+
 // System
 
 using System;
@@ -41,6 +43,11 @@ public class Sample3DAttributesComponent : MonoBehaviour
 	private AttributeType lastLayerAttribute;
 	private Esri.GameEngine.Attributes.ArcGISAttributeProcessor attributeProcessor;
 	private SampleAPIMapCreator sampleMapCreator;
+
+	[SerializeField]
+	private Text buildingName;
+	[SerializeField]
+	private Text buildingYear;
 
 	// We subscribe on awake to a sample event provided by the SampleAPIMapCreator component
 	// See ArcGISMapsSDK/Samples/Scripts/APISample/SampleAPIMapCreator.cs for more info
@@ -127,6 +134,7 @@ public class Sample3DAttributesComponent : MonoBehaviour
 			// Buffers will be provided in the same order they appear in the layer metadata
 			// If layerAttributes contained an additional element, it would be at inputAttributes.At(1)
 			var nameAttribute = layerNodeAttributes.At(0);
+			
 
 			// The outputVisualizationAttributes array expects that its data is indexed the same way as the attributeDescriptions above
 			var isBuildingOfInterestAttribute = renderNodeAttributes.At(0);
@@ -139,6 +147,9 @@ public class Sample3DAttributesComponent : MonoBehaviour
 			{
 				isBuildingOfInterestData[index] = IsBuildingOfInterest(element);
 			});
+
+			
+			Debug.Log(isBuildingOfInterestData[6]);
 		};
 
 		// Pass the layer attributes, attribute descriptions and the attribute processor to the layer
@@ -156,14 +167,15 @@ public class Sample3DAttributesComponent : MonoBehaviour
 		{
 			return 0;
 		}
-		else if (element.Equals("Empire State Building") || element.Equals("Chrysler Building") || element.Equals("Tower 1 World Trade Ctr") ||
+/*		else if (element.Equals("Empire State Building") || element.Equals("Chrysler Building") || element.Equals("Tower 1 World Trade Ctr") ||
 				element.Equals("One Chase Manhattan Plaza"))
 		{
 			return 1;
-		}
+		}*/
 		else
 		{
-			return 0;
+			/*Debug.Log(element);*/
+			return 1;
 		}
 	}
 

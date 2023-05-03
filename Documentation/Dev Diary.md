@@ -14,3 +14,7 @@ giving lats and longs, but it took so much time and it failed. Then I moved to m
 - Added Sun Controller to all scenes
 - Fixed the issue of being not able to click on the UI components by updating arcGisCameraComponent.
 - Ammended minor UI updates. 
+
+## Day 3
+- Reading documentation and researching on a way to recieve information about the buildings
+- Failed all attempts to make such a system

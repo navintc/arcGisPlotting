@@ -187,11 +187,12 @@ namespace Esri.ArcGISMapsSDK.Samples.Components
 				// Not functional until we have a spatial reference
 				return;
 			}
-			Debug.Log("EventSystem.current: " + EventSystem.current.IsPointerOverGameObject());
+
 			if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             {
                 return;
             }
+
             DragMouseEvent();
 
 			UpdateNavigation();
