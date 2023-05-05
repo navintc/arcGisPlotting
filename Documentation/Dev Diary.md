@@ -18,3 +18,7 @@ giving lats and longs, but it took so much time and it failed. Then I moved to m
 ## Day 3
 - Reading documentation and researching on a way to recieve information about the buildings
 - Failed all attempts to make such a system
+
+# Day 4
+- Making the python UDP streamer and the Unity UDP reciever. Initially it was created to sendout floats by packaging them in to a Python struct as a bytes-like data type. These data was unpackable from the unity's end. Therefore changed the python script again to send out the values as strings by pacakaging them in to a bytes-like type. Then these data was converted back to float from unity.
+- Started experimenting with Beizier curves to implement a sine curve.

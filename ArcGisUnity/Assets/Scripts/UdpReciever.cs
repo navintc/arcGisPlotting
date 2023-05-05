@@ -8,6 +8,7 @@ public class UdpReciever : MonoBehaviour
 {
     private UdpClient udpClient;
     private int port = 5005;
+    public static float UDPSineValue;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class UdpReciever : MonoBehaviour
             receivedData = udpClient.EndReceive(result, ref remoteEndPoint);
             string receivedString = Encoding.ASCII.GetString(receivedData);
             float floatValue = float.Parse(receivedString);
-            Debug.Log("Received: " + floatValue);
+            UDPSineValue = floatValue;
 
 
 /*            int intValue;
