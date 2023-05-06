@@ -1,0 +1,25 @@
+{
+  "cities": [
+    {
+      "featureID": "709654",
+      "numberofchairs": "60000",
+      "numberofpeople": "55000",
+      "fireexits": "100",
+      "Engineer": "Javashan Pythonsinghe"
+    },
+    {
+      "featureID": "1850147",
+      "numberofchairs": "1000",
+      "numberofpeople": "200",
+      "fireexits": "16",
+      "Engineer": "Ruby Seesharpa"
+    },
+    {
+      "featureID": "2644210",
+      "numberofchairs": "100",
+      "numberofpeople": "80",
+      "fireexits": "1",
+      "Engineer": "Jenkins Dockerson"
+    }
+  ]
+}

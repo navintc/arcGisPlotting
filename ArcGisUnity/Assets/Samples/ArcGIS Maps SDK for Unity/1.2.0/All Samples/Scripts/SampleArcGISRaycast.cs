@@ -20,6 +20,7 @@ public class SampleArcGISRaycast : MonoBehaviour
 	public ArcGISCameraComponent arcGISCamera;
 	public Canvas canvas;
 	public Text featureText;
+	public Text metadataText;
 	public enum AttributeType
 	{
 		None,
@@ -33,9 +34,7 @@ public class SampleArcGISRaycast : MonoBehaviour
 	private AttributeType lastLayerAttribute;
 	private Esri.GameEngine.Attributes.ArcGISAttributeProcessor attributeProcessor;
 
-	
-
-	private void OnEnable()
+    private void OnEnable()
 	{
 #if ENABLE_INPUT_SYSTEM
 		Debug.Log("ArcGISRaycast sample is not configured to work with the new input manager package");
@@ -43,7 +42,12 @@ public class SampleArcGISRaycast : MonoBehaviour
 #endif
 	}
 
-	void Update()
+    void Start()
+    {
+
+	}
+
+    void Update()
     {
 #if !ENABLE_INPUT_SYSTEM
 		if (Input.GetKey(KeyCode.LeftShift) && Input.GetMouseButtonDown(0))
@@ -56,6 +60,7 @@ public class SampleArcGISRaycast : MonoBehaviour
 				var arcGISRaycastHit = arcGISMapComponent.GetArcGISRaycastHit(hit);
 				var layer = arcGISRaycastHit.layer;
 				var featureId = arcGISRaycastHit.featureId;
+				
 
 				DumpToConsole(arcGISRaycastHit.layer);
 				DumpToConsole(arcGISRaycastHit);
@@ -63,6 +68,8 @@ public class SampleArcGISRaycast : MonoBehaviour
 				if (layer != null && featureId != -1)
 				{
 					featureText.text = featureId.ToString();
+					metadataText.text = JSONReader.getCity(featureId.ToString());
+					//metadataText.text = "testick test test testo testico";
 
 					var geoPosition = arcGISMapComponent.EngineToGeographic(hit.point);
 					var offsetPosition = new ArcGISPoint(geoPosition.X, geoPosition.Y, geoPosition.Z + 200, geoPosition.SpatialReference);
