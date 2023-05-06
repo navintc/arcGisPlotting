@@ -26,17 +26,6 @@ public class UdpReciever : MonoBehaviour
             string receivedString = Encoding.ASCII.GetString(receivedData);
             float floatValue = float.Parse(receivedString);
             UDPSineValue = floatValue;
-
-
-/*            int intValue;
-            byte[] intBytes = new byte[4];
-            Buffer.BlockCopy(receivedData, 0, intBytes, 0, 4);
-            if (BitConverter.IsLittleEndian)
-            {
-                Array.Reverse(intBytes);
-            }
-            intValue = BitConverter.ToInt32(intBytes, 0);
-            Debug.Log("Received: " + intValue);*/
         }
 
         catch (Exception ex)

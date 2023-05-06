@@ -7,22 +7,19 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     public static string selectedScene = "Test Mode";
-
-    void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("scenemanager");
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
+    public GameObject UDPReciever;
 
     public void loadButton()
     {
         SceneLoader(selectedScene);
     }
 
+    public void mainMenu()
+    {
+        Destroy(UDPReciever);
+        SceneLoader("MainMenu");
+        
+    }
     private void SceneLoader(string scenename)
     {
         Debug.Log("sceneName to load: " + scenename);

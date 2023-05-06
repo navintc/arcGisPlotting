@@ -21,6 +21,8 @@ public class SampleArcGISRaycast : MonoBehaviour
 	public Canvas canvas;
 	public Text featureText;
 	public Text metadataText;
+
+	public GameObject popUp;
 	public enum AttributeType
 	{
 		None,
@@ -34,6 +36,7 @@ public class SampleArcGISRaycast : MonoBehaviour
 	private AttributeType lastLayerAttribute;
 	private Esri.GameEngine.Attributes.ArcGISAttributeProcessor attributeProcessor;
 
+
     private void OnEnable()
 	{
 #if ENABLE_INPUT_SYSTEM
@@ -44,7 +47,7 @@ public class SampleArcGISRaycast : MonoBehaviour
 
     void Start()
     {
-
+		popUp.SetActive(false);
 	}
 
     void Update()
@@ -67,6 +70,8 @@ public class SampleArcGISRaycast : MonoBehaviour
 
 				if (layer != null && featureId != -1)
 				{
+					popUp.SetActive(true);
+					
 					featureText.text = featureId.ToString();
 					metadataText.text = JSONReader.getCity(featureId.ToString());
 					//metadataText.text = "testick test test testo testico";
@@ -78,8 +83,13 @@ public class SampleArcGISRaycast : MonoBehaviour
 					var location = canvas.GetComponent<ArcGISLocationComponent>();
 					location.Position = offsetPosition;
 					location.Rotation = rotation;
+				}else
+				{
+					popUp.SetActive(false);
 				}
-			}
+            }
+            
+
 		}
 #endif
 	}
