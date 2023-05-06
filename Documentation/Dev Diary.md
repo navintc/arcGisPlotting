@@ -19,6 +19,11 @@ giving lats and longs, but it took so much time and it failed. Then I moved to m
 - Reading documentation and researching on a way to recieve information about the buildings
 - Failed all attempts to make such a system
 
-# Day 4
+## Day 4
 - Making the python UDP streamer and the Unity UDP reciever. Initially it was created to sendout floats by packaging them in to a Python struct as a bytes-like data type. These data was unpackable from the unity's end. Therefore changed the python script again to send out the values as strings by pacakaging them in to a bytes-like type. Then these data was converted back to float from unity.
 - Started experimenting with Beizier curves to implement a sine curve.
+
+## Day 5
+- Initially tried to make an array which moves the incomming data starting from the last element to the first. So it could be used to make a functional graph. While building it, I got an idea to build a plotter using a custom trail with unity particle systems. It is successfully implemented in the scene view, but it's not visible in the game view due to camera complications of HDRP. Then I implemented a sprite generator to simulate the effect of a plotter.
+- Dockerizing the python app
+- Figma designing 

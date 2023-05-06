@@ -8,6 +8,7 @@ public class PlotImg : MonoBehaviour
     public float speed;
     [SerializeField]
     public float time;
+    [SerializeField]
     private float closing;
 
     // Start is called before the first frame update
