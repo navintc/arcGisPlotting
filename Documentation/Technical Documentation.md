@@ -20,19 +20,55 @@ The camera will move When you click on UI elements as well. To stop this from ha
 
 To have this system working `EventSystem` object should be included into the hierachy.
 
+### ArcGISLocationComponent.cs
+This script is manipulated to grab altitude of the camera. To do this it will automatically select the target UI Text field with a tag search, so that there will be no collisions with namespaces.
+The updated function is `SyncPositionWithHPTransform()`
+
+    ..
+    if (internalHasChanged && position != null && position.IsValid)
+    {
+        PushChangesToHPTransform();
+        camAltTxt.GetComponent<Text>().text = position.Z.ToString();
+
+    }
+    ..
+
 # Unity Scripts
 
 ## SunController.cs
 This script controls the behavior of a sun object in the scene. It includes a slider and a text element for displaying the city name. The sun's rotation is determined by the value of the slider, which can be adjusted by the user. The sun smoothly rotates based on the sun direction using Quaternion.Slerp. The city name is displayed in the UI text element.
 
-## SceneManager.cs
+## SceneManagerScript.cs
 This script is used to manage all the scene transition related activities and this script should be added into an empty game object. Then this object will remain as a "dontdestroyonload" object through out the scenes.
 
 | Member         | Type              | Access  | Static | Description                                                                                                              |
 | -------------- | ---------------- | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
 | `selectedScene` | `string`         | `public`| `true` | Used to store the name of the next scene the user wishes to load. This value is updated by external scripts and will be actively used by the `loadButton()` function. |
 | `loadButton()`  | `void` function  | `public` | `false` | Calls the `SceneLoader()` function by passing down the `selectedScene`. Used in buttons in the scenes.                     |
+| `mainMenu()`  | `void` function  | `public` | `false` | This will change the scene to the main menu by using the `SceneLoader()` function     |
 | `SceneLoader()` | `void` function  | `private`| `false` | Loads the scene with the name of the parameterized string.                                                               |
+
+## JSONReader.cs
+This script provides a method for reading JSON data and retrieving city information based on a feature ID. `City` and `Cities` supporting classes.
+
+| Field        | Description                                      |
+|--------------|--------------------------------------------------|
+| jsonFile     | A serialized field to store a JSON file as a TextAsset. |
+
+| Method            | Description                                                                                                                                                                                               |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Start()           | Initializes the `_jsonFile` field with the value of `jsonFile` during the start of the script execution.                                                                                                  |
+| getCity(string)   | Takes a `featureID` as a parameter and searches for a matching city in the JSON data. Returns a string containing the metadata of the city if found (including the number of chairs, number of people, fire exits, and engineer), or a "No metadata found" message. |
+
+
+*City Class:*
+    This class represents the structure of a city object in the JSON data.
+    It includes public fields for various attributes of a city such as featureID, numberofchairs, numberofpeople, fireexits, and Engineer.
+
+*Cities Class:*
+    This class represents the structure of the JSON data containing an array of City objects.
+    It includes a public field cities that holds an array of City objects.
+
 
 ## UdpReciever.cs
 This script will grab the data streamed in the port 5000. The recieved data will be parsed into to float and will be stored into a public static variable (UDPSineValue) so that it would be accessed to other scripts in the system.
@@ -70,3 +106,7 @@ First the sine value will be generated according to the time and the frequency. 
     data = bytes(mapped_value, 'utf-8')
 
 A dockerfile also available in the project.
+
+
+# Identified Bugs
+- The UDP stream reading is expected even when the object is destroyed. Therefore the app crashes when trying to go back to the main menu.

@@ -26,4 +26,11 @@ giving lats and longs, but it took so much time and it failed. Then I moved to m
 ## Day 5
 - Initially tried to make an array which moves the incomming data starting from the last element to the first. So it could be used to make a functional graph. While building it, I got an idea to build a plotter using a custom trail with unity particle systems. It is successfully implemented in the scene view, but it's not visible in the game view due to camera complications of HDRP. Then I implemented a sprite generator to simulate the effect of a plotter.
 - Dockerizing the python app
-- Figma designing 
+- Figma designing
+
+## Day 6
+- Scraping Camera Altitude from arcGIS scripts was not so easy as I expected it to be. Serialization did not work on those scripts for some reasons, thus I looked in to an automated solution to do it. Using tags to locate an UI element and then updating it, was the best solution came into my mind.
+- Adding the JsonParser
+- Adding the new functionalities to San Fransisco and Montreal from the New York Scene.
+- Updating the documentation
+- Looking again for the way to implement OSM - Failed
